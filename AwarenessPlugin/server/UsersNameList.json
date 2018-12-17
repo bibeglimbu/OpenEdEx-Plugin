@@ -1,0 +1,76 @@
+{
+  "Users": [
+    {
+      "Name": "A",
+      "Status": "Offline"
+    },
+    {
+      "Name": "B",
+      "Status": "Online"
+    },
+    {
+      "Name": "C",
+      "Status": "Online"
+    },
+    {
+      "Name": "D",
+      "Status": "Online"
+    },
+    {
+      "Name": "E",
+      "Status": "Offline"
+    },
+    {
+      "Name": "F",
+      "Status": "Online"
+    },
+    {
+      "Name": "G",
+      "Status": "Online"
+    },
+    {
+      "Name": "H",
+      "Status": "Online"
+    },
+    {
+      "Name": "I",
+      "Status": "Online"
+    },
+    {
+      "Name": "J",
+      "Status": "Online"
+    },
+    {
+      "Name": "K",
+      "Status": "Offline"
+    },
+    {
+      "Name": "L",
+      "Status": "Online"
+    },
+    {
+      "Name": "M",
+      "Status": "Online"
+    },
+    {
+      "Name": "N",
+      "Status": "Online"
+    },
+    {
+      "Name": "O",
+      "Status": "Offline"
+    },
+    {
+      "Name": "P",
+      "Status": "Online"
+    },
+    {
+      "Name": "Q",
+      "Status": "Online"
+    },
+    {
+      "Name": "R",
+      "Status": "Online"
+    }
+  ]
+}

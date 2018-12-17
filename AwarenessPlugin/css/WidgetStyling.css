@@ -1,0 +1,48 @@
+.column {
+  float: left;
+  width: 45%;
+  border: 1px Solid #808080;
+  margin: 0.5%;
+  padding: 0.5%
+}
+
+.container {
+	margin: 2.5%;
+}
+
+#sortable {
+    list-style-type: none;
+    margin: 1px;
+    padding: 1px;
+}
+
+    #sortable li {
+        display: inline-block;
+        padding: 1px;
+        margin: 1px;
+        text-align: center;
+    }
+
+        #sortable li a {
+            width: 25px;
+            height: 25px;
+            display: block;
+            margin: 3px;
+            text-align: center;
+            border: solid 1px #888;
+            background-color: red;
+            font-size: 24px;
+            padding: 1px;
+        }
+
+.links {
+    width: 25px;
+    height: 25px;
+    display: block;
+    margin: 3px;
+    text-align: center;
+    border: solid 1px #888;
+    background-color: grey;
+    font-size: 24px;
+    padding: 1px;
+}
