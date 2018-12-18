@@ -1,76 +1,100 @@
 {
-  "Users": [
-    {
-      "Name": "A",
-      "Status": "Offline"
-    },
+  "OnlineUsers": [
     {
       "Name": "B",
-      "Status": "Online"
-    },
-    {
-      "Name": "C",
-      "Status": "Online"
-    },
-    {
-      "Name": "D",
-      "Status": "Online"
-    },
-    {
-      "Name": "E",
-      "Status": "Offline"
-    },
-    {
-      "Name": "F",
-      "Status": "Online"
-    },
-    {
-      "Name": "G",
-      "Status": "Online"
-    },
-    {
-      "Name": "H",
-      "Status": "Online"
+      "Status": "Online",
+      "Distance": 2
     },
     {
       "Name": "I",
-      "Status": "Online"
+      "Status": "Online",
+      "Distance": 1
     },
     {
       "Name": "J",
-      "Status": "Online"
-    },
-    {
-      "Name": "K",
-      "Status": "Offline"
+      "Status": "Online",
+      "Distance": 1
     },
     {
       "Name": "L",
-      "Status": "Online"
+      "Status": "Online",
+      "Distance": 3
     },
     {
       "Name": "M",
-      "Status": "Online"
-    },
-    {
-      "Name": "N",
-      "Status": "Online"
-    },
-    {
-      "Name": "O",
-      "Status": "Offline"
-    },
-    {
-      "Name": "P",
-      "Status": "Online"
-    },
-    {
-      "Name": "Q",
-      "Status": "Online"
+      "Status": "Online",
+      "Distance": 4
     },
     {
       "Name": "R",
-      "Status": "Online"
+      "Status": "Online",
+      "Distance": 1
+    }
+  ],
+    "RecentUsers": [
+    {
+      "Name": "C",
+      "Status": "Recent",
+      "Distance": 4
+    },
+    {
+      "Name": "D",
+      "Status": "Recent",
+      "Distance": 0
+    },
+    {
+      "Name": "F",
+      "Status": "Recent",
+      "Distance": 4
+    },
+    {
+      "Name": "G",
+      "Status": "Recent",
+      "Distance": 7
+    },
+    {
+      "Name": "H",
+      "Status": "Recent",
+      "Distance": 12
+    },
+    {
+      "Name": "N",
+      "Status": "Recent",
+      "Distance": 2
+    },
+    {
+      "Name": "P",
+      "Status": "Recent",
+      "Distance": 8
+    },
+    {
+      "Name": "Q",
+      "Status": "Recent",
+      "Distance": 9
+    }
+  ],
+    "OfflineUsers": [
+    {
+      "Name": "A",
+      "Status": "Offline",
+      "Distance": 3
+    },
+    {
+      "Name": "E",
+      "Status": "Offline",
+      "Distance": 2
+    },
+    {
+      "Name": "K",
+      "Status": "Offline",
+      "Distance": 2
+    },
+    {
+      "Name": "O",
+      "Status": "Offline",
+      "Distance": 7
     }
   ]
+
+
 }
