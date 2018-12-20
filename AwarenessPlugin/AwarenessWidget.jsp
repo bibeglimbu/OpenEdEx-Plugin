@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +10,7 @@
         //when the document has finished loading. "$" sign calls the jquery
         $(document).ready(function () {
 		
-		function user (name, status, avatarURL) {
+		function user (name, status, avatarURL, altText) {
 		this.name=name;
 		this.GetName = function() {
         return this.name;
@@ -25,19 +23,26 @@
 		this.GetAvatarURL = function() {
         return this.avatarURL;
 		};
+		this.altText =  altText;
+		this.getAltText = function(){
+			return this.altText;
+		};
 		}
 
 		var users = [
-		new user("A", "Online","*.png"),
-		new user("B", "Online","*.png"),
-		new user("C", "Offline","*.png"),
-		new user("D", "Online","*.png"),
-		new user("E", "Online","*.png"),
-		new user("F", "Offline","*.png"),
-		new user("G", "Online","*.png")];
-		
-		$("#sortable").sortable();
-        $("#sortable").disableSelection();
+		new user("A", "inCurrentPage", "server/images/profileImage.png", "Apple"),
+		new user("B", "inCurrentPage", "server/images/profileImage.png", "Ball"),
+		new user("C", "inOtherPage", "server/images/avatar.png", "Cat"),
+		new user("D", "inCurrentPage", "server/images/profileImage.png", "Dog"),
+		new user("E", "inCurrentPage", "server/images/profileImage.png", "Elephant"),
+		new user("F", "Offline", "server/images/profileImage.png", "Fan"),
+		new user("G", "inCurrentPage", "server/images/profileImage.png", "Gun"),
+		new user("H", "inOtherPage", "server/images/profileImage.png", "Horse"),
+		new user("I", "inCurrentPage", "server/images/profileImage.png", "India"),
+		new user("J", "inCurrentPage", "server/images/profileImage.png", "Jelly"),
+		new user("K", "Offline", "server/images/profileImage.png", "Kathmandu"),
+		new user("L", "inCurrentPage", "server/images/profileImage.png", "Lavender")];
+
         $(".links").click(function () {
                 alert("Chat page");
             });
@@ -50,19 +55,32 @@
         $(document).tooltip();
 		
 		$.each(users, function (index, value) {
-                        console.log(value.GetName());
-                        var color;
-                        if (value.GetStatus == "Online") {
-                            color = 'lawngreen';
-                        } else if (value.GetStatus == "Offline") {
-                            color = 'red';
-                        } else {
-                            color = 'grey';
-                        }
-                        var userDP = '<div class="links" ' + 'style="background-color:' + color.toString()+'"'+ '>' + value.GetName() + '</div>';
-                        $(userDP).appendTo($("#AW_myClanFrame"));
-						});
-			})
+		//console.log(value.GetName());
+		var color;
+		if (value.GetStatus() == "inCurrentPage") {
+		color = 'green';
+		} 
+		else if (value.GetStatus() == "inOtherPage") {
+		color = 'red';
+		} 
+		else {
+		color = 'grey';
+		}
+		//var userDP = '<div class="links" ' + 'style="border-color' + color.toString()+'"'+ '>' + value.GetName() + '</div>';
+		loadImage(value.GetAvatarURL(), color,"#AW_myClanFrame", value.getAltText());
+		//$(userDP).appendTo($("#AW_myClanFrame"));
+		});
+		
+		function loadImage(path, color, target, altText) {
+		var userDP = '<div class="links" ' + 'style= "border-color: '+ color+';'+'background-color: '+ color +'"' +'>' +
+		'<a href="#" '+'title= "'+ altText +'">'+
+		'<img src="'+ path +'"'+' width=25 height =25'+'">' +
+		'</a>' +
+		'</div>';
+		console.log(userDP);
+		$(userDP).appendTo(target);
+		};
+})
     </script>
 
 </head>
@@ -70,26 +88,24 @@
 <body>
 
     <div class="container">
+	<div style="margin: 0.5%"><strong>Awareness Widget</strong></div>
         <div class="column" id="AW_myClanFrame">
-            <strong>My Clan</strong>
-            <ul id="sortable">
-			</ul>
+            <div style="margin: 0.5%"><strong>My Clan</strong></div>
         </div>
         <div class="column" id="AW_otherClanFrame">
-            <strong>Other Clan</strong>
-            <p>Online members: </p><div id="online"></div>
-            <p>Offline members: </p><div id="offline"></div>
+            <div><strong>Other Clan</strong></div>
+            <div><Strong>Online members: </strong></div>
+			<div id="online"></div>
+            <div><Strong>Offline members: </strong></div>
+			<div id="offline"></div>
         </div>
-        <div class="column">
-            <ul>
-                <li><p style="color: lawngreen">Online in your page</p></li>
-                <li><p style="color: red">Online in other pages</p></li>
-                <li><p style="color: dimgrey">offline</p></li>
-            </ul>
+        <div class="column" id="AW_ledger">
+		<div style="padding: 0.5%"><strong style="color: lawngreen">Online in your page</strong></div>
+        <div style="padding: 0.5%"><strong style="color: red">Online in other pages</strong></div>
+        <div style="padding: 0.5%"><strong style="color: dimgrey">Offline</strong></div>
         </div>
 
         <div class="column" id="AW_ajaxresult">
-
         </div>
     </div>
 
