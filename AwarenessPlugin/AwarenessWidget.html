@@ -46,10 +46,10 @@
         $(".links").click(function () {
                 alert("Chat page");
             });
-        $("#online").progressbar({
+        $("#AW_OtherClanOnline").progressbar({
                 value: 40
             });
-        $("#offline").progressbar({
+        $("#AW_OtherClanOffline").progressbar({
                 value: 60
             });
         $(document).tooltip();
@@ -61,26 +61,24 @@
 		color = 'green';
 		} 
 		else if (value.GetStatus() == "inOtherPage") {
-		color = 'red';
+		color = 'blue';
 		} 
 		else {
 		color = 'grey';
 		}
-		//var userDP = '<div class="links" ' + 'style="border-color' + color.toString()+'"'+ '>' + value.GetName() + '</div>';
 		loadImage(value.GetAvatarURL(), color,"#AW_myClanFrame", value.getAltText());
-		//$(userDP).appendTo($("#AW_myClanFrame"));
 		});
 		
 		function loadImage(path, color, target, altText) {
 		var userDP = '<div class="links" ' + 'style= "border-color: '+ color+';'+'background-color: '+ color +'"' +'>' +
 		'<a href="#" '+'title= "'+ altText +'">'+
-		'<img src="'+ path +'"'+' width=25 height =25'+'">' +
+		'<img src="'+ path +'"'+' width="25px" height="25px" '+'">' +
 		'</a>' +
 		'</div>';
 		console.log(userDP);
 		$(userDP).appendTo(target);
 		};
-})
+		})
     </script>
 
 </head>
@@ -88,26 +86,60 @@
 <body>
 
     <div class="container">
-	<div style="margin: 0.5%"><strong>Awareness Widget</strong></div>
+	
         <div class="column" id="AW_myClanFrame">
-            <div style="margin: 0.5%"><strong>My Clan</strong></div>
-        </div>
+            <div>
+			<div><img style="width: 25px; height=25px"  src = "server/images/ClanDefault.png"/>
+			<strong style=" font-size: 24px" >My Clan</strong>
+			</div>
+			
+			</div>
+		</div><!--myclanframe-->
+		
         <div class="column" id="AW_otherClanFrame">
-            <div><strong>Other Clan</strong></div>
-            <div><Strong>Online members: </strong></div>
-			<div id="online"></div>
-            <div><Strong>Offline members: </strong></div>
-			<div id="offline"></div>
-        </div>
+		
+			<div><img style="width: 25px; height=25px"  src = "server/images/OtherClanDefault.png"/>
+			<strong style=" font-size: 24px" >Other Clan</strong>
+			</div>
+			
+            <div style="margin-top: 30px"><Strong>Online members: </strong></div>
+			<div id="AW_OtherClanOnline"></div>
+            <div style="margin-top: 30px"><Strong>Offline members: </strong></div>
+			<div id="AW_OtherClanOffline"></div>
+        </div><!--otherclanframe-->
+		
         <div class="column" id="AW_ledger">
-		<div style="padding: 0.5%"><strong style="color: lawngreen">Online in your page</strong></div>
-        <div style="padding: 0.5%"><strong style="color: red">Online in other pages</strong></div>
-        <div style="padding: 0.5%"><strong style="color: dimgrey">Offline</strong></div>
-        </div>
-
-        <div class="column" id="AW_ajaxresult">
-        </div>
-    </div>
+		
+		<div style="padding: 0.5%">
+		<svg width="15px" height="15px">
+		<rect width="15" height="15" style="fill:green;stroke-width:2;stroke:rgb(0,0,0)" />
+		</svg>
+		<strong style="color: green">Online in your page</strong>
+		</div> <!--green-->
+		
+        <div style="padding: 0.5%">
+		<svg width="15px" height="15px">
+		<rect width="15px" height="15px" style="fill:blue;stroke-width:2;stroke:rgb(0,0,0)" />
+		</svg>
+		<strong style="color: blue">Online in other pages</strong>
+		</div><!--red-->
+		
+        <div style="padding: 0.5%">
+		<svg width="15px" height="15px">
+		<rect width="15px" height="15px" style="fill:orange;stroke-width:2;stroke:rgb(0,0,0)" />
+		</svg>
+		<strong style="color: orange">Recently Online </strong>
+		</div><!--grey-->
+		
+		<div style="padding: 0.5%">
+		<svg width="15px" height="15px">
+		<rect width="15px" height="15px" style="fill:grey;stroke-width:2;stroke:rgb(0,0,0)" />
+		</svg>
+		<strong style="color: grey">Offline </strong>
+		</div><!--grey-->
+		</div><!--ledger-->
+		
+    </div><!--container-->
 
 </body>
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SelectionWidget</title>
+    <link rel="stylesheet" href="css/SelectionWidgetStyling.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+	$(document).ready(function () {
+		  $( "#selectable" ).selectable();
+	});
+
+	</script>
+
+</head>
+	
+	<body>
+	<div class="container">
+	
+	<div style="display: inline-block; text-align: center; width: 560px; height: 30px">
+	<strong style=" font-size: 24px">Help your clan to find your identity!</strong>
+	</div><!--heading-->
+	
+	<div class="column">
+	<ol id="selectable">
+	<li class="ui-widget-content">Robin hack</li>
+	<li class="ui-widget-content">Hacker MaNN</li>
+	<li class="ui-widget-content">Promi Stalkers</li>
+	<li class="ui-widget-content">Creditcard Chiefs</li>
+	<li class="ui-widget-content">Curious Kids</li>
+	</ol>
+	
+	</div><!--column-->
+	
+	</div><!--container-->
+	
+	</body>
+
+</html>
