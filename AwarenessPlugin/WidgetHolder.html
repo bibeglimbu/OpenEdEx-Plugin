@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IdentityWidget</title>
+    <link rel="stylesheet" href="css/WidgetHolderStyling.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+	    $(document).ready(function () {
+		//this is temp and the frameholder src should be replaced by the active link
+		$("#Selection_frameHolder").attr("src","SelectionWidget.html");		
+		$("#AW_frameHolder").attr("src","ClanMembers.html");
+        $(document).tooltip();
+		$(function() {
+		$("#ChatBox").on("OpenDialog",function(event){
+		alert("Dialog opened");
+		$("#ChatBox").dialog({
+		autoOpen: true,
+		title: "Chat Box"
+		});
+		});
+		});
+		
+		})
+	</script>
+
+</head>
+	
+	<body>
+	<div class="container">
+	
+	<div class = "columnOne"  >
+	
+	<img id="ClanLogo"  src="server/images/ClanDefault.png"/>
+	<div id="ChatBox"></div>
+	<iframe id="AW_frameHolder"></iframe>
+	
+	</div><!--columnOne-->
+
+	
+	<div class="columnTwo">
+	<iframe id="Selection_frameHolder"></iframe>
+	
+	<div id="buttonControl">
+	<button class="ui-button ui-widget ui-corner-all">Submit</button>
+	</div><!--button Control-->
+	
+	</div><!--columnTwo-->
+	
+
+
+	</div><!--container-->
+	
+
+	</body>
+
+</html>

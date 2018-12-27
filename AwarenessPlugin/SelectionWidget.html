@@ -9,6 +9,22 @@
     <script type="text/javascript">
 	$(document).ready(function () {
 		  $( "#selectable" ).selectable();
+		  $(document).tooltip({
+		  track:true
+		  });
+
+		  $( "div.voteDisplay" ).mouseover(function() {
+		  var clan = $("<iframe />", {"class": "clanWindow", src: "ClanMembers.html"});
+		  $("#selectable").before(clan);
+		  $( ".clanWindow" ).position({
+		  my: "center",
+		  at: "center",
+		  of: "#selectable"
+		  });
+		  });
+		  $( "div.voteDisplay" ).mouseout(function() {
+		  $(".clanWindow").remove();
+		  });
 	});
 
 	</script>
@@ -16,22 +32,35 @@
 </head>
 	
 	<body>
+	
 	<div class="container">
 	
-	<div style="display: inline-block; text-align: center; width: 560px; height: 30px">
+	<div style="display: inline-block; text-align: center; width: 98%; height: 10%">
 	<strong style=" font-size: 24px">Help your clan to find your identity!</strong>
-	</div><!--heading-->
+	</div>
 	
 	<div class="column">
+	
 	<ol id="selectable">
-	<li class="ui-widget-content">Robin hack</li>
-	<li class="ui-widget-content">Hacker MaNN</li>
-	<li class="ui-widget-content">Promi Stalkers</li>
-	<li class="ui-widget-content">Creditcard Chiefs</li>
-	<li class="ui-widget-content">Curious Kids</li>
+	
+	<li class="ui-widget-content" > <img class="ClanFlag" title="Men in tights" src="server/images/padlock _greeen.png"/> The ethical hackers :
+	<div class="voteDisplay"> 20% <!--Replace with server value--> </div> </li>
+	
+	
+	<li class="ui-widget-content" ><img class="ClanFlag" title="When i restart my router" src="server/images/padlock_grey.png"/> Anonymous :
+	<div class="voteDisplay"> 20% <!--Replace with server value--> </div> </li>
+	
+	<li class="ui-widget-content" ><img class="ClanFlag" title="No idea what this is" src="server/images/padlock_red.png"/> Ghost Squad :
+	<div class="voteDisplay"> 20% <!--Replace with server value--> </div> </li>
+	
+	<li class="ui-widget-content" ><img class="ClanFlag" title="American Express" src="server/images/padlock_purple.png"/> The Unknowns :
+	<div class="voteDisplay"> 20% <!--Replace with server value--> </div> </li>
+	
 	</ol>
 	
 	</div><!--column-->
+	
+
 	
 	</div><!--container-->
 	

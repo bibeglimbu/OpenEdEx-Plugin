@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clan Members</title>
+    <link rel="stylesheet" href="css/ClanMembersStyling.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript">
+	    $(document).ready(function () {
+		function user (name, status, avatarURL, altText) {
+		this.name=name;
+		this.GetName = function() {
+        return this.name;
+		};
+		this.status=status;
+		this.GetStatus = function() {
+        return this.status;
+		};
+		this.avatarURL=avatarURL;
+		this.GetAvatarURL = function() {
+        return this.avatarURL;
+		};
+		this.altText =  altText;
+		this.getAltText = function(){
+			return this.altText;
+		};
+		}
+
+		var users = [
+		new user("A", "inCurrentPage", "server/images/avatar-1.png", "Apple"),
+		new user("B", "inCurrentPage", "server/images/avatar-2.png", "Ball"),
+		new user("C", "inOtherPage", "server/images/avatar-3.png", "Cat"),
+		new user("D", "inCurrentPage", "server/images/avatar-4.png", "Dog"),
+		new user("E", "inCurrentPage", "server/images/avatar-5.png", "Elephant"),
+		new user("F", "Offline", "server/images/avatar-6.png", "Fan"),
+		new user("G", "inCurrentPage", "server/images/avatar-1.png", "Gun"),
+		new user("H", "inOtherPage", "server/images/avatar-2.png", "Horse"),
+		new user("I", "inCurrentPage", "server/images/avatar-3.png", "India"),
+		new user("J", "inCurrentPage", "server/images/avatar-4.png", "Jelly"),
+		new user("K", "Offline", "server/images/avatar-5.png", "Kathmandu"),
+		new user("L", "inCurrentPage", "server/images/avatar-6.png", "Lavender")];
+
+        $(".profiles").click(function () {
+                alert("Chat page");
+            });
+			
+        $(document).tooltip();
+		
+		$.each(users, function (index, value) {
+		//console.log(value.GetName());
+		var color;
+		if (value.GetStatus() == "inCurrentPage") {
+		color = 'green';
+		} 
+		else if (value.GetStatus() == "inOtherPage") {
+		color = 'blue';
+		} 
+		else {
+		color = 'grey';
+		}
+		loadImage(value.GetAvatarURL(), color,"#AW_myClanFrame", value.getAltText());
+		});
+		
+		function loadImage(path, color, target, altText) {
+		var userDP = '<div class="profiles" ' + 'style= "border-color: '+ color+';'+'background-color: '+ color +'"' +'>' +
+		'<a href="#" '+'title= "'+ altText +'">'+
+		'<img src="'+ path +'"'+' width="25px" height="25px" '+'">' +
+		'</a>' +
+		'</div>';
+		console.log(userDP);
+		$(userDP).appendTo(target);
+		};
+		
+		$(".profiles").on("click",function(e){
+		alert("Chat box should open. If it doesnt it means that the website should be hosted on a local/server");
+		parent.$("#ChatBox").trigger("OpenDialog");
+		});
+		})
+	</script>
+</head>
+	
+	<body>
+		<div class="container" id="AW_myClanFrame"> 
+	
+		</div><!--container-->
+		<div id="dialog">
+		
+		</div>
+	
+
+	</body>
+
+</html>
