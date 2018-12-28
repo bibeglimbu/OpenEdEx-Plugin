@@ -21,6 +21,10 @@
 		});
 		});
 		});
+		$("#Next").click(function(){
+		var val = $("#Selection_frameHolder").contents().find('input[name="clanName"]').val();
+		alert(val);
+		});
 		
 		})
 	</script>
@@ -30,26 +34,29 @@
 	<body>
 	<div class="container">
 	
-	<div class = "columnOne"  >
-	
+	<div class = "column" id="columnOne" >
 	<img id="ClanLogo"  src="server/images/ClanDefault.png"/>
 	<div id="ChatBox"></div>
-	<iframe id="AW_frameHolder"></iframe>
+	<img id="ProfileLogo"  src="server/images/avatar-6.png"/>
 	
 	</div><!--columnOne-->
 
 	
-	<div class="columnTwo">
+	<div class="column" id="columnTwo">
 	<iframe id="Selection_frameHolder"></iframe>
 	
-	<div id="buttonControl">
-	<button class="ui-button ui-widget ui-corner-all">Submit</button>
+	<div id="buttonControl2" >
+	<button class="ui-button ui-widget ui-corner-all" id="Next">Next</button>
 	</div><!--button Control-->
-	
+	<div id="buttonControl1" >
+	<button class="ui-button ui-widget ui-corner-all" id = "Previous">Previous</button>
+	</div><!--button Control-->
 	</div><!--columnTwo-->
 	
-
-
+	<div class = "column" id="columnThree">
+	<iframe id="AW_frameHolder"></iframe>
+	</div>
+	
 	</div><!--container-->
 	
 

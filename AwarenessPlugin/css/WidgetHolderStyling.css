@@ -8,57 +8,77 @@
 	border: 2.5px Solid #808080;
 	/*overflow:hidden;*/
 	word-wrap:break-word;
+	
 }
 
-.columnOne {
+.column {
     display: block;
 	float: left;
-    margin: 0.2em;
-    padding: 0.2em;
+	text-align: center;
+	
 }
 
-
-#ClanLogo{
-	display: block;
-	width: 5em;
-	height: 5em;
-	margin: 1em;
-	padding-left:2.25em;
-
-}
-
-#AW_frameHolder{
-	overflow: hidden;
-	display: block;
-	height: 13em;
-	width: 12.25em;
+#columnOne {
+	width: 12%;
+	height: 64%;
 	/*border: 2.5px Solid #808080;*/
 }
 
-.columnTwo {
-	display: inline-block;
-    margin: 0.2em;
-    padding: 0.2em;
-	width: 33.25em;
-	height: 23em;
+#ClanLogo{
+	width: 5em;
+	height: 5em;
+	margin-top: 25%;
+	margin-bottom: 25%;
+	/*border: 2.5px Solid #808080;*/
+}
+
+#ProfileLogo{
+	width: 5em;
+	height: 5em;
+	margin-top: 25%;
+	margin-bottom: 25%;
+	/*border: 2.5px Solid #808080;*/
+}
+
+#columnTwo {
+	width: 88%;
+	height: 80%;
+	/*border: 2.5px Solid #808080;*/
 }
 
 #Selection_frameHolder{
 	display: inline-block;
-	margin: 0.2em;
     padding: 0.2em;
-	width: 32.5em;
-	height: 20em;
+	width: 98%;
+	height: 82%;
 }
 
-#buttonControl {
-	width:32em;
-	height: 2em;
+#buttonControl2 {
+	width:48%;
+	height: 10%;
+	float: right;
     display: inline-block;
 	text-align: center;
-    margin-top: 0.2em;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 0.2em;
+	/*border: 2.5px Solid #808080;*/
+}
+#buttonControl1 {
+	width:48%;
+	height: 10%;
+	float: right;
+    display: inline-block;
+	text-align: center;
+	/*border: 2.5px Solid #808080;*/
+}
+ 
+#columnThree{
+	width: 99%;
+	/*border: 2.5px Solid #808080;*/
+}
+#AW_frameHolder{
+	overflow: hidden;
+	display: block;
+	height: 3.5em;
+	width: 100%;
+	/*border: 2.5px Solid #808080;*/
 }
 

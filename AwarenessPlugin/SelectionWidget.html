@@ -8,23 +8,111 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
 	$(document).ready(function () {
-		  $( "#selectable" ).selectable();
-		  $(document).tooltip({
+	$("input" ).checkboxradio();
+	$(document).tooltip({
 		  track:true
 		  });
+	$(".voters").css("height", function(){
+	var $height = $(".widget").css("height");
+	return $height;
+	});
+	
+	function user (name, status, avatarURL, altText, clanChoice) {
+		this.name=name;
+		this.GetName = function() {
+        return this.name;
+		};
+		this.clanChoice=clanChoice;
+		this.GetClanChoice = function() {
+        return this.clanChoice;
+		};
+		this.status=status;
+		this.GetStatus = function() {
+        return this.status;
+		};
+		this.avatarURL=avatarURL;
+		this.GetAvatarURL = function() {
+        return this.avatarURL;
+		};
+		this.altText =  altText;
+		this.getAltText = function(){
+			return this.altText;
+		};
+	}
 
-		  $( "div.voteDisplay" ).mouseover(function() {
-		  var clan = $("<iframe />", {"class": "clanWindow", src: "ClanMembers.html"});
-		  $("#selectable").before(clan);
-		  $( ".clanWindow" ).position({
-		  my: "center",
-		  at: "center",
-		  of: "#selectable"
-		  });
-		  });
-		  $( "div.voteDisplay" ).mouseout(function() {
-		  $(".clanWindow").remove();
-		  });
+		var users = [
+		new user("A", "inCurrentPage", "server/images/avatar-1.png", "Apple","clanName1"),
+		new user("B", "inCurrentPage", "server/images/avatar-2.png", "Ball","clanName3"),
+		new user("C", "inOtherPage", "server/images/avatar-3.png", "Cat","clanName2"),
+		new user("D", "inCurrentPage", "server/images/avatar-4.png", "Dog","clanName1"),
+		new user("E", "inCurrentPage", "server/images/avatar-5.png", "Elephant","clanName4"),
+		new user("F", "Offline", "server/images/avatar-6.png", "Fan","clanName3"),
+		new user("G", "inCurrentPage", "server/images/avatar-1.png", "Gun","clanName2"),
+		new user("H", "inOtherPage", "server/images/avatar-2.png", "Horse","clanName1"),
+		new user("I", "recentlyOnline", "server/images/avatar-3.png", "India","clanName4"),
+		new user("J", "inCurrentPage", "server/images/avatar-4.png", "Jelly","clanName3"),
+		new user("K", "Offline", "server/images/avatar-5.png", "Kathmandu","clanName2"),
+		new user("L", "inCurrentPage", "server/images/avatar-6.png", "Lavender","clanName1")];
+		
+		$.each(users, function (index, value) {
+		//console.log(value.GetName());
+		var clan = value.GetClanChoice();
+		var target;
+		switch (clan) { 
+		case 'clanName1': 
+		target = "#ClanName1";
+		break;
+		case 'clanName2': 
+		target = "#ClanName2";
+		break;
+		case 'clanName3': 
+		target = "#ClanName3";	
+		break;
+		case 'clanName4': 
+		target = "#ClanName4";
+		break;
+		default:
+		alert('error in clan choice');
+		}
+		
+		var status=value.GetStatus();
+		var color;
+		
+		switch (status) { 
+		case 'inCurrentPage': 
+		color = "green";
+		break;
+		case 'inOtherPage': 
+		color = "blue";
+		break;
+		case 'recentlyOnline': 
+		color = "orange";	
+		break;
+		case 'Offline': 
+		color = "grey";
+		break;
+		default:
+		alert('error in status');
+		}
+		
+		loadImage(value.GetAvatarURL(), color, target, value.getAltText());
+		});
+		
+		function loadImage(path, color, target, altText) {
+		var userDP = '<div class="profiles" ' + 'style= "border-color: '+ color+';'+'background-color: '+ color +'"' +'>' +
+		'<a href="#" '+'title= "'+ altText +'">'+
+		'<img src="'+ path +'"'+' width="25px" height="25px" '+'">' +
+		'</a>' +
+		'</div>';
+		console.log(userDP);
+		$(userDP).appendTo(target);
+		};
+		
+		$(".profiles").on("click",function(e){
+		alert("Chat box should open. If it doesnt it means that the website should be hosted on a local/server");
+		parent.$("#ChatBox").trigger("OpenDialog");
+		});
+		 
 	});
 
 	</script>
@@ -35,32 +123,32 @@
 	
 	<div class="container">
 	
-	<div style="display: inline-block; text-align: center; width: 98%; height: 10%">
-	<strong style=" font-size: 24px">Help your clan to find your identity!</strong>
-	</div>
-	
 	<div class="column">
 	
-	<ol id="selectable">
+	<form id="myForm" action="#" method="post">
+	<fieldset>
+	<legend> Pick your clan's name:</legend>
+	<div class="widget">
+      <label for="clanName1" title="The ethical hackers">The ethical hackers</label>
+      <input type="radio" name="clanName" id="clanName1">
+      <label for="clanName2" title="Anonymous">Anonymous</label>
+      <input type="radio" name="clanName" id="clanName2">
+      <label for="clanName3" title="Ghost Squad">Ghost Squad</label>
+      <input type="radio" name="clanName" id="clanName3">
+      <label for="clanName4" title="The Unknowns">The Unknowns</label>
+      <input type="radio" name="clanName" id="clanName4">
+	</div><!--widget-->
+	  
+	<div class="voters">
+	  <div class= "voterList" id="ClanName1"></div>
+	  <div class= "voterList" id="ClanName2"></div>
+	  <div class= "voterList" id="ClanName3"></div>
+	  <div class= "voterList" id="ClanName4"></div>
+	</div><!--voters-->
 	
-	<li class="ui-widget-content" > <img class="ClanFlag" title="Men in tights" src="server/images/padlock _greeen.png"/> The ethical hackers :
-	<div class="voteDisplay"> 20% <!--Replace with server value--> </div> </li>
-	
-	
-	<li class="ui-widget-content" ><img class="ClanFlag" title="When i restart my router" src="server/images/padlock_grey.png"/> Anonymous :
-	<div class="voteDisplay"> 20% <!--Replace with server value--> </div> </li>
-	
-	<li class="ui-widget-content" ><img class="ClanFlag" title="No idea what this is" src="server/images/padlock_red.png"/> Ghost Squad :
-	<div class="voteDisplay"> 20% <!--Replace with server value--> </div> </li>
-	
-	<li class="ui-widget-content" ><img class="ClanFlag" title="American Express" src="server/images/padlock_purple.png"/> The Unknowns :
-	<div class="voteDisplay"> 20% <!--Replace with server value--> </div> </li>
-	
-	</ol>
-	
+	</fieldset>
+	</form>
 	</div><!--column-->
-	
-
 	
 	</div><!--container-->
 	

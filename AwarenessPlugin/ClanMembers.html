@@ -36,7 +36,7 @@
 		new user("F", "Offline", "server/images/avatar-6.png", "Fan"),
 		new user("G", "inCurrentPage", "server/images/avatar-1.png", "Gun"),
 		new user("H", "inOtherPage", "server/images/avatar-2.png", "Horse"),
-		new user("I", "inCurrentPage", "server/images/avatar-3.png", "India"),
+		new user("I", "recentlyOnline", "server/images/avatar-3.png", "India"),
 		new user("J", "inCurrentPage", "server/images/avatar-4.png", "Jelly"),
 		new user("K", "Offline", "server/images/avatar-5.png", "Kathmandu"),
 		new user("L", "inCurrentPage", "server/images/avatar-6.png", "Lavender")];
@@ -56,7 +56,10 @@
 		else if (value.GetStatus() == "inOtherPage") {
 		color = 'blue';
 		} 
-		else {
+		else if(value.GetStatus() == "recentlyOnline"){
+		color = 'orange';
+		} else 
+		{
 		color = 'grey';
 		}
 		loadImage(value.GetAvatarURL(), color,"#AW_myClanFrame", value.getAltText());
