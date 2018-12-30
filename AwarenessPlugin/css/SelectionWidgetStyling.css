@@ -7,44 +7,21 @@
     height: 100%;
 	overflow:hidden; 
 }
-.column {
-	width:98%;
-	height: 98%;
-    margin: 0.2em;
-    padding: 0.2em;
-}
 
-.widget{
-	display: block;
-	float: left;
-	width:12.5em;
+#widget{
 	padding: 0.2em;
 	margin: 0.2em;
 	/*border: 2.5px Solid #808080;*/
 }
 
-.widget label{
+#widget label{
 	margin:0.2em;
 	text-align: left;
-	width: 10em;
-	height: 1.4em;
-	
-}
-
-.voters {
-	display: inline-block;
-	width: 54%;
-	margin: 0.25em;
-	/*border: 2.5px Solid #808080;*/
 }
 
 .voterList{
-	width: 94%;
-	height: 2.2em;
-	margin-top:0.2em;
-	margin-bottom: 0.6em;
-	margin-left: 0.2em;
-	margin-right: 0.2em;
+	display: block;
+	float: right;
 	/*border: 2.5px Solid #808080;*/
 }
 
@@ -53,6 +30,7 @@
 	text-align: right;
 	overflow: hidden
 	}
+	
 .clanWindow{
 	position: absolute;
 	width: 45%;

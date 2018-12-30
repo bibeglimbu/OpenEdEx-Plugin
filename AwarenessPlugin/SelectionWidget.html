@@ -112,7 +112,22 @@
 		alert("Chat box should open. If it doesnt it means that the website should be hosted on a local/server");
 		parent.$("#ChatBox").trigger("OpenDialog");
 		});
-		 
+		//set the width of each labels so that they are unifrom
+		/*temporary width holder*/
+		var $labelWidth = 0;
+		//iterate through each label to get the max width
+		$.each($("#widget").children("label"), function(index, value){
+		if($labelWidth <= $('label[for="'+value.htmlFor+'"]').outerWidth()){
+		$labelWidth = $('label[for="'+value.htmlFor+'"]').outerWidth();
+		};
+		});
+		//set width of the label
+		$("#widget label").css("width", $labelWidth);
+		//set width of the voter list
+		$(".voterList").css("width", function(){
+		var width= $(".container").width()-$labelWidth-150;
+		return width;
+		});
 	});
 
 	</script>
@@ -123,32 +138,30 @@
 	
 	<div class="container">
 	
-	<div class="column">
-	
 	<form id="myForm" action="#" method="post">
 	<fieldset>
 	<legend> Pick your clan's name:</legend>
-	<div class="widget">
+	<div id="widget">
       <label for="clanName1" title="The ethical hackers">The ethical hackers</label>
       <input type="radio" name="clanName" id="clanName1">
+	  <div class= "voterList" id="ClanName1"></div>
+	  
       <label for="clanName2" title="Anonymous">Anonymous</label>
       <input type="radio" name="clanName" id="clanName2">
+	  <div class= "voterList" id="ClanName2"></div>
+	  
       <label for="clanName3" title="Ghost Squad">Ghost Squad</label>
       <input type="radio" name="clanName" id="clanName3">
+	  <div class= "voterList" id="ClanName3"></div>
+	  
       <label for="clanName4" title="The Unknowns">The Unknowns</label>
       <input type="radio" name="clanName" id="clanName4">
-	</div><!--widget-->
-	  
-	<div class="voters">
-	  <div class= "voterList" id="ClanName1"></div>
-	  <div class= "voterList" id="ClanName2"></div>
-	  <div class= "voterList" id="ClanName3"></div>
 	  <div class= "voterList" id="ClanName4"></div>
-	</div><!--voters-->
+	  
+	</div><!--widget-->
 	
 	</fieldset>
 	</form>
-	</div><!--column-->
 	
 	</div><!--container-->
 	
