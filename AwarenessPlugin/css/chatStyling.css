@@ -1,0 +1,56 @@
+.container {
+	margin-right: auto;
+    margin-left: auto;
+    padding: 0.2em;
+    width:48em;
+    height: 24em;
+	border: 2.5px Solid #808080;
+	/*overflow:hidden;*/
+	word-wrap:break-word;
+}
+
+.column{
+	display: block;
+	float: left;
+	text-align: center;
+	padding: 0.2em;
+}
+#columnOne {
+	width: 64%;
+	height: 98%;
+	/*border: 2.5px Solid #808080;*/
+}
+#columnTwo {
+	width: 34%;
+	height: 98%;
+	/*border: 2.5px Solid #808080;*/
+}
+
+
+#headerHolder{
+border: 2.5px Solid #ff0000;
+text-align: center;
+background: #440000;
+color: #ffffff;
+}
+
+#userName{
+padding: 0.2em;
+}
+
+#userName span{
+  display: inline-block;
+  vertical-align: middle;
+font-size: 1.5em;
+}
+
+#ClanLogo{
+vertical-align: middle;
+width: 2em;
+height: 2em;
+}
+
+#chatRooms{
+height: 60%;
+width: 98%;
+}

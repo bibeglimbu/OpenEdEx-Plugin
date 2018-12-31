@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SS Chat - Room List</title>
+    <link rel="stylesheet" href="css/chatStyling.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	</head>
+<script type="text/javascript">
+$(document).ready(function () {
+var name= "RandomGuest";/*replace the variable with the user name currently logged in*/
+$("#nameHolder").text(name);
+$( "#chatRooms" ).accordion();
+})
+</script>
+	
+	<body>
+	<div class="container">
+	<div class="column" id="columnOne">
+	<div id="headerHolder">Replace with room name</div>
+	<div id="userName"><img id="ClanLogo" src="img/ClanDefault.png"/> 
+<span>Welcome</span> 
+<span id = "nameHolder"></span><!--name of the user to go here-->
+</div>
+<p>Select the room you want to enter or click view description to view description about the room.</p>
+
+</div><!--columnOne-->
+
+<div class="column" id="columnTwo">
+<Form name="chatrooms" action="/chat/start.jsp" method="post">
+ <fieldset>
+    <label for="chatroom">Select a room.</label>
+    <select name="chatroom" id="roomName">
+      <option>I need Challenge.</option>
+      <option>I just want to chat.</option>
+      <option selected="selected">I need a teacher.</option>
+      <option>I need help.</option>
+ </select>
+	</fieldset>
+</Form>
+</div><!--columnTwo-->
+
+	</div><!--container-->
+	</body>
+
+</html>
